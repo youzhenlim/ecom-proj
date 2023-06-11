@@ -36,4 +36,11 @@ class UsersRepository {
     async writeAll(records){
         await fs.promises.writeFile(this.filename, JSON.stringify(records, null, 2));
     }
+
+    async getOne(id){
+        const records = await this.getAll();
+        return records.find(record => record.id === id);
+    }
 }
+
+
