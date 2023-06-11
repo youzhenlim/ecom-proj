@@ -78,6 +78,12 @@ class UsersRepository {
     }
 }
 
+// Instead of exporting a class, we export an instance so
+// that all the methods can be called immediately 
+// more importantly all changes will be made to one file (users.json)
+// which prevents multiple places of storage by accident
+module.exports = new UsersRepository('users.json');
+
 
 
 
