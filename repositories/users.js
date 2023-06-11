@@ -61,7 +61,24 @@ class UsersRepository {
             await this.writeAll(records);
         }
     }
+
+    async getOneBy(filters){
+        const records = await this.getAll();
+        for(let record of records){
+            let found = true;
+                for (let key in filters){
+                    if (record[key] !== filters[key]){
+                        found = false
+                    }
+                }
+            if(found){
+                return record;
+            }
+        }
+    }
 }
+
+
 
 
 
