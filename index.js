@@ -6,6 +6,7 @@ const authRouter = require('./routes/admin/auth');
 const app = express();
 
 //For app.use() allows all our different route handlers to have access to the middleware function
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(    // Note: The keys can be any random string
     cookieSession({keys: ['gfkdgkfwedsfsewwervcbcveswqd']
