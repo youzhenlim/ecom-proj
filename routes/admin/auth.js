@@ -20,6 +20,10 @@ router.post('/signup', [
     ], 
     async (req, res) => {
     const errors = validationResult(req);
+
+    if(!errors.isEmpty()){
+        return res.send(signupTemplate({req, errors}))
+    }
  
     //Destructuring
     const {email, password, passwordConfirmation} = req.body;
