@@ -13,8 +13,10 @@ module.exports = ({ products }) => {
               <h3 class="subtitle">${product.title}</h3>
               <h5>$${product.price}</h5>
             </div>
+
             <footer class="card-footer">
               <form action="/cart/products" method="POST">
+                <input hidden value="${product.id}" name="productId">
                 <button class="button has-icon is-inverted">
                   <i class="fa fa-shopping-cart"></i> Add to cart
                 </button>
